@@ -47,7 +47,9 @@ def chart(fig):
         fig.update_layout(title_text='<br>'.join(textwrap.wrap(fig.layout.title.text,68)))
     fig.update_xaxes(gridcolor='#EDF2F3',linecolor='#DCE7E8',zerolinecolor='#DCE7E8',title_font_size=10)
     fig.update_yaxes(gridcolor='#EDF2F3',linecolor='#DCE7E8',zerolinecolor='#DCE7E8',title_font_size=10)
-    country_colors={name:PALETTE[i%len(PALETTE)] for i,name in enumerate(sorted(df['Country Name'].unique()))}
+    priority=['Botswana','South Africa','Zimbabwe','Rwanda','Tanzania']
+    ordered=priority+[name for name in sorted(df['Country Name'].unique()) if name not in priority]
+    country_colors={name:PALETTE[i%len(PALETTE)] for i,name in enumerate(ordered)}
     series_colors={'Prevalence of HIV, total (% of population ages 15-49)':'#DB735B','Antiretroviral therapy coverage (% of people living with HIV)':'#007F78'}
     short_names={'Prevalence of HIV, total (% of population ages 15-49)':'HIV prevalence (%)','Antiretroviral therapy coverage (% of people living with HIV)':'ART coverage (%)','GDP growth (annual %)':'GDP growth','GDP per capita growth (annual %)':'GDP per capita growth'}
     for trace in fig.data:
