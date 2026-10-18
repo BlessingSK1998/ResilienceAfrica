@@ -4,7 +4,7 @@
 
 [**Open the live interactive report →**](https://sn8qwviwero3futjtggbwg.streamlit.app/)
 
-![Research dashboard overview](reports/overview.png)
+[![ResilienceAfrica — population health and data science](assets/resilienceafrica-cover.png)](https://sn8qwviwero3futjtggbwg.streamlit.app/)\n\n*Cover: AI-generated conceptual illustration.*\n\n[**Read the original master’s thesis (PDF)**](reports/Blessing_Sekeramavi_Thesis.pdf)\n\n![Research dashboard overview](reports/overview.png)
 
 An interactive research report built from the actual dataset recovered from my master's thesis Power BI dashboard: **48 countries · 21 indicators · 21,302 observations · 1990–2023**.
 
@@ -20,7 +20,7 @@ streamlit run app.py
 ```
 
 ## Read the research
-[Research report](reports/REPORT.md) · [Recovered dataset](data/thesis_data.csv) · [Indicator dictionary](data/indicator_dictionary.csv) · [Data provenance](data/provenance.json)
+[Original thesis (PDF)](reports/Blessing_Sekeramavi_Thesis.pdf) · [Research report](reports/REPORT.md) · [Recovered dataset](data/thesis_data.csv) · [Indicator dictionary](data/indicator_dictionary.csv) · [Data provenance](data/provenance.json)
 
 ## Reproduce the analysis
 ```bash
