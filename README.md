@@ -2,6 +2,8 @@
 ### HIV/AIDS, health systems and economic development in Sub-Saharan Africa
 **Created by Blessing Sekeramavi**
 
+[**Open the live interactive report →**](https://sn8qwviwero3futjtggbwg.streamlit.app/)
+
 ![Research dashboard overview](reports/overview.png)
 
 An interactive research report built from the actual dataset recovered from my master's thesis Power BI dashboard: **48 countries · 21 indicators · 21,302 observations · 1990–2023**.
@@ -27,7 +29,7 @@ python scripts/analyze.py
 Outputs include pooled OLS and country fixed-effects models with country-clustered standard errors, plus indicator coverage. Results from this recovered table are distinguished from the original thesis results. No exact replication claim is made.
 
 ## Deploy on Streamlit Community Cloud
-Upload this folder's contents to a GitHub repository named `ResilienceAfrica`. In Streamlit Community Cloud select that repository, branch `main`, and entry point `app.py`. Dependencies are in `requirements.txt`. No API key is required. A deployment has not yet been created for this package.
+Upload this folder's contents to a GitHub repository named `ResilienceAfrica`. In Streamlit Community Cloud select that repository, branch `main`, and entry point `app.py`. Dependencies are in `requirements.txt`. No API key is required. Live deployment: https://sn8qwviwero3futjtggbwg.streamlit.app/.
 
 ## Verification
 ```bash
