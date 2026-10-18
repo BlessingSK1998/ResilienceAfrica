@@ -1,5 +1,7 @@
 from pathlib import Path
 from itertools import count
+import textwrap
+from design import CSS, BRAND, HERO, PALETTE
 import pandas as pd
 import plotly.express as px
 import streamlit as st
@@ -8,34 +10,55 @@ import os
 from powerbi_support import valid_embed_url
 
 ROOT = Path(__file__).resolve().parent
-st.set_page_config(page_title='ResilienceAfrica | Blessing Sekeramavi', page_icon='🌍', layout='wide')
-st.markdown('''<style>.block-container{padding-top:2rem}h1{letter-spacing:-1.5px}[data-testid="stMetric"]{background:#132337;padding:20px;border-radius:12px;border:1px solid #264056}</style>''', unsafe_allow_html=True)
+st.set_page_config(page_title='ResilienceAfrica | Health & Development', page_icon='✚', layout='wide')
+st.markdown(CSS, unsafe_allow_html=True)
+px.defaults.color_discrete_sequence = PALETTE
 @st.cache_data
 def load():
     return pd.read_csv(ROOT / 'data/thesis_data.csv')
 df = load()
 dictionary = df[['Series Code','Series Name']].drop_duplicates().set_index('Series Code')['Series Name'].to_dict()
-st.caption('RESEARCH OBSERVATORY  /  SUB-SAHARAN AFRICA')
-st.title('Health shocks. Economic resilience.')
-st.markdown('Explore HIV/AIDS, treatment access and development across Sub-Saharan Africa.')
-st.caption('Created by Blessing Sekeramavi · Original master’s thesis, 2025 · Recovered data: 1990–2023')
+st.markdown(HERO, unsafe_allow_html=True)
 with st.sidebar:
+    st.markdown(BRAND, unsafe_allow_html=True)
     st.header('Explore the evidence')
     countries = sorted(df['Country Name'].unique())
     selected = st.multiselect('Countries', countries, default=[c for c in ['Botswana','South Africa','Zimbabwe','Rwanda','Tanzania'] if c in countries])
     years = st.slider('Years', int(df.Year.min()), int(df.Year.max()), (1990,2023))
     indicator = st.selectbox('Indicator', list(dictionary), index=list(dictionary).index('SH.DYN.AIDS.ZS'), format_func=dictionary.get)
-    st.caption('Each chart uses one indicator and its original units. Missing country-years are not imputed.')
+    st.markdown('<div class="ra-side-note"><strong>Reading the evidence</strong>Each indicator retains its original units. Missing country-years remain missing.</div>', unsafe_allow_html=True)
 if not selected:
     st.info('Select at least one country to explore.'); st.stop()
 f = df[df['Country Name'].isin(selected) & df.Year.between(*years)].copy()
+st.markdown('<div class="ra-section-label">YOUR RESEARCH LENS</div>', unsafe_allow_html=True)
 a,b,c,d = st.columns(4)
 a.metric('Countries selected', len(selected)); b.metric('Observations', f'{len(f):,}'); c.metric('Indicators', f['Series Code'].nunique()); d.metric('Year window', f'{years[0]}–{years[1]}')
 methods,trend,maptab,compare,models,powerbi,data = st.tabs(['Project report','Trends','Africa map','Relationships','Model results','Power BI','Data & coverage'])
 chart_ids = count()
 def chart(fig):
-    fig.update_layout(template='plotly_dark',paper_bgcolor='rgba(0,0,0,0)',plot_bgcolor='rgba(0,0,0,0)',margin=dict(l=15,r=15,t=60,b=25),legend_title_text='')
-    st.plotly_chart(fig, width='stretch', key=f'chart_{next(chart_ids)}')
+    fig.update_layout(template='plotly_white', paper_bgcolor='#FFFFFF', plot_bgcolor='#FFFFFF',
+        font=dict(family='Inter, system-ui, sans-serif', color='#48636D', size=11),
+        margin=dict(l=24,r=24,t=66 if fig.layout.title.text else 30,b=28),
+        legend=dict(title_text='',orientation='h',y=-.18,x=0,font=dict(size=10),tracegroupgap=4),
+        hoverlabel=dict(bgcolor='#153F47',font_color='#F5FAF8',bordercolor='#153F47'),
+        colorway=PALETTE, title=dict(font=dict(size=14,color='#214752'),x=.02),
+        modebar=dict(bgcolor='rgba(255,255,255,.8)',color='#78928F',activecolor='#007F78'))
+    if fig.layout.title.text:
+        fig.update_layout(title_text='<br>'.join(textwrap.wrap(fig.layout.title.text,68)))
+    fig.update_xaxes(gridcolor='#EDF2F3',linecolor='#DCE7E8',zerolinecolor='#DCE7E8',title_font_size=10)
+    fig.update_yaxes(gridcolor='#EDF2F3',linecolor='#DCE7E8',zerolinecolor='#DCE7E8',title_font_size=10)
+    country_colors={name:PALETTE[i%len(PALETTE)] for i,name in enumerate(sorted(df['Country Name'].unique()))}
+    series_colors={'Prevalence of HIV, total (% of population ages 15-49)':'#DB735B','Antiretroviral therapy coverage (% of people living with HIV)':'#007F78'}
+    short_names={'Prevalence of HIV, total (% of population ages 15-49)':'HIV prevalence (%)','Antiretroviral therapy coverage (% of people living with HIV)':'ART coverage (%)','GDP growth (annual %)':'GDP growth','GDP per capita growth (annual %)':'GDP per capita growth'}
+    for trace in fig.data:
+        if trace.type=='scatter':
+            color=series_colors.get(trace.name,country_colors.get(trace.name))
+            if color: trace.update(line_color=color,marker_color=color)
+            trace.update(line_width=2.3,marker_size=5)
+            if trace.name in short_names: trace.name=short_names[trace.name]
+    for annotation in fig.layout.annotations or []:
+        annotation.update(text=annotation.text.replace('Country Name=',''),font=dict(size=11,color='#48636D'))
+    st.plotly_chart(fig, width='stretch', key=f'chart_{next(chart_ids)}',config={'displaylogo':False,'scrollZoom':False})
 with trend:
     q=f[f['Series Code']==indicator]
     st.subheader(dictionary[indicator])
@@ -69,7 +92,9 @@ with compare:
                 corr=q[x].corr(q[y]); st.metric('Pooled Pearson correlation', f'{corr:.3f}' if pd.notna(corr) else 'Undefined')
             else: st.info('Not enough overlapping observations.')
 with methods:
-    st.image(str(ROOT/'reports/overview.png'), width='stretch')
+    st.markdown('<div class="ra-report-heading"><h3>The research, in perspective.</h3><span>RESEARCH REPORT / 01</span></div>', unsafe_allow_html=True)
+    with st.expander('Visual overview · five country trajectories', expanded=False):
+        st.image(str(ROOT/'reports/overview.png'), width='stretch')
     st.markdown((ROOT/'reports/REPORT.md').read_text())
     st.download_button('Download full project report',(ROOT/'reports/REPORT.md').read_bytes(),'ResilienceAfrica_Report.md','text/markdown')
 with data:
@@ -139,3 +164,5 @@ with powerbi:
             else: st.error('Configure a valid HTTPS app.powerbi.com/view?r=… or app.powerbi.com/reportEmbed?reportId=… URL.')
         else:
             st.info('No published Power BI embed URL has been configured. Download the original PBIX or use the working recreated views above.')
+
+st.markdown('<div class="ra-footer"><span>✚ &nbsp; ResilienceAfrica · Population health & development</span><span>Research by Blessing Sekeramavi</span></div>', unsafe_allow_html=True)
