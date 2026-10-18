@@ -1,0 +1,26 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:             gdp_growth   R-squared:                       0.001
+Model:                            OLS   Adj. R-squared:                 -0.000
+Method:                 Least Squares   F-statistic:                     1.160
+Date:                Sun, 18 Oct 2026   Prob (F-statistic):              0.323
+Time:                        12:59:01   Log-Likelihood:                -4842.8
+No. Observations:                1370   AIC:                             9692.
+Df Residuals:                    1367   BIC:                             9707.
+Df Model:                           2                                         
+Covariance Type:              cluster                                         
+==============================================================================
+                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      4.1701      0.572      7.287      0.000       3.048       5.292
+education     -0.0257      0.071     -0.362      0.717      -0.165       0.113
+hiv           -0.0380      0.036     -1.054      0.292      -0.109       0.033
+==============================================================================
+Omnibus:                     1553.855   Durbin-Watson:                   1.286
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):           519098.739
+Skew:                           5.106   Prob(JB):                         0.00
+Kurtosis:                      97.813   Cond. No.                         13.9
+==============================================================================
+
+Notes:
+[1] Standard Errors are robust to cluster correlation (CRV1)

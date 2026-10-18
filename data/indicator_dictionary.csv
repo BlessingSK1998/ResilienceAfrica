@@ -1,0 +1,22 @@
+Series Code,Series Name
+BM.TRF.PWKR.CD.DT,"Personal remittances, paid (current US$)"
+BX.TRF.PWKR.CD.DT,"Personal remittances, received (current US$)"
+GC.XPN.COMP.ZS,Compensation of employees (% of expense)
+NY.ADJ.AEDU.GN.ZS,Adjusted savings: education expenditure (% of GNI)
+NY.GDP.MKTP.KD.ZG,GDP growth (annual %)
+NY.GDP.PCAP.KD.ZG,GDP per capita growth (annual %)
+NY.GNP.MKTP.KD.ZG,GNI growth (annual %)
+SE.TER.CUAT.ST.ZS,"Educational attainment, at least completed short-cycle tertiary, population 25+, total (%) (cumulative)"
+SE.XPD.TERT.PC.ZS,"Government expenditure per student, tertiary (% of GDP per capita)"
+SE.XPD.TOTL.GD.ZS,"Government expenditure on education, total (% of GDP)"
+SH.DYN.AIDS.ZS,"Prevalence of HIV, total (% of population ages 15-49)"
+SH.HIV.ARTC.ZS,Antiretroviral therapy coverage (% of people living with HIV)
+SH.MED.BEDS.ZS,"Hospital beds (per 1,000 people)"
+SH.UHC.NOPR.ZS,Proportion of population pushed below the 60% median consumption poverty line by out-of-pocket health expenditure (%)
+SH.XPD.CHEX.GD.ZS,Current health expenditure (% of GDP)
+SH.XPD.EHEX.CH.ZS,External health expenditure (% of current health expenditure)
+SH.XPD.GHED.GD.ZS,Domestic general government health expenditure (% of GDP)
+SH.XPD.OOPC.CH.ZS,Out-of-pocket expenditure (% of current health expenditure)
+SI.DST.50MD,Proportion of people living below 50 percent of median income (%)
+SP.DYN.LE00.IN,"Life expectancy at birth, total (years)"
+SP.POP.TOTL,"Population, total"

@@ -1,0 +1,136 @@
+[
+  {
+    "page": "Page 1",
+    "visual_type": "shape",
+    "fields": {}
+  },
+  {
+    "page": "Page 1",
+    "visual_type": "shape",
+    "fields": {}
+  },
+  {
+    "page": "Page 1",
+    "visual_type": "textbox",
+    "fields": {}
+  },
+  {
+    "page": "Page 1",
+    "visual_type": "qnaVisual",
+    "fields": {}
+  },
+  {
+    "page": "Page 1",
+    "visual_type": "lineChart",
+    "fields": {
+      "Category": [
+        {
+          "queryRef": "Cleaned_Data_for_PowerBI.Year",
+          "active": true
+        }
+      ],
+      "Series": [
+        {
+          "queryRef": "Cleaned_Data_for_PowerBI.Series Name"
+        }
+      ],
+      "Y": [
+        {
+          "queryRef": "Sum(Cleaned_Data_for_PowerBI.Value)"
+        }
+      ],
+      "Tooltips": [
+        {
+          "queryRef": "Sum(Cleaned_Data_for_PowerBI.Value)"
+        }
+      ]
+    }
+  },
+  {
+    "page": "Page 1",
+    "visual_type": "actionButton",
+    "fields": {}
+  },
+  {
+    "page": "Page 1",
+    "visual_type": "filledMap",
+    "fields": {
+      "Category": [
+        {
+          "queryRef": "Cleaned_Data_for_PowerBI.Country Name",
+          "active": true
+        }
+      ],
+      "Series": [
+        {
+          "queryRef": "Cleaned_Data_for_PowerBI.Series Name"
+        }
+      ],
+      "Tooltips": [
+        {
+          "queryRef": "Sum(Cleaned_Data_for_PowerBI.Value)"
+        }
+      ]
+    }
+  },
+  {
+    "page": "Page 2",
+    "visual_type": "scriptVisual",
+    "fields": {
+      "Values": [
+        {
+          "queryRef": "Cleaned_Data_for_PowerBI.Country Name"
+        },
+        {
+          "queryRef": "Cleaned_Data_for_PowerBI.Series Name"
+        },
+        {
+          "queryRef": "Cleaned_Data_for_PowerBI.Value"
+        },
+        {
+          "queryRef": "Cleaned_Data_for_PowerBI.Year"
+        }
+      ]
+    }
+  },
+  {
+    "page": "Page 3",
+    "visual_type": "scriptVisual",
+    "fields": {
+      "Values": [
+        {
+          "queryRef": "Cleaned_Data_for_PowerBI.Country Name"
+        },
+        {
+          "queryRef": "Cleaned_Data_for_PowerBI.Series Name"
+        },
+        {
+          "queryRef": "Cleaned_Data_for_PowerBI.Year"
+        },
+        {
+          "queryRef": "Cleaned_Data_for_PowerBI.Value"
+        }
+      ]
+    }
+  },
+  {
+    "page": "Page 4",
+    "visual_type": "scriptVisual",
+    "fields": {
+      "Values": [
+        {
+          "queryRef": "Cleaned_Data_for_PowerBI.Series Name"
+        },
+        {
+          "queryRef": "Cleaned_Data_for_PowerBI.Value"
+        },
+        {
+          "queryRef": "Cleaned_Data_for_PowerBI.Year"
+        },
+        {
+          "queryRef": "Cleaned_Data_for_PowerBI.Country Name"
+        }
+      ]
+    }
+  }
+]

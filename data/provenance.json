@@ -1,0 +1,10 @@
+{
+  "rows": 21302,
+  "countries": 48,
+  "indicators": 21,
+  "min_year": 1990,
+  "max_year": 2023,
+  "duplicate_keys": 0,
+  "source": "Recovered from uploaded Thesis Dashboard (1).pbix, table Cleaned_Data_for_PowerBI",
+  "source_sha256": "afd4309a741f52a5a77ccb50bfd9376c7d366e919ae2088aabd2589873d591aa"
+}

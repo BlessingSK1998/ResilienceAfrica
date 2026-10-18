@@ -1,0 +1,22 @@
+Series Code,Series Name,n,countries,first_year,last_year
+BM.TRF.PWKR.CD.DT,"Personal remittances, paid (current US$)",1304,47,1990,2023
+BX.TRF.PWKR.CD.DT,"Personal remittances, received (current US$)",1423,48,1990,2023
+GC.XPN.COMP.ZS,Compensation of employees (% of expense),643,37,1990,2023
+NY.ADJ.AEDU.GN.ZS,Adjusted savings: education expenditure (% of GNI),1536,48,1990,2021
+NY.GDP.MKTP.KD.ZG,GDP growth (annual %),1590,48,1990,2023
+NY.GDP.PCAP.KD.ZG,GDP per capita growth (annual %),1590,48,1990,2023
+NY.GNP.MKTP.KD.ZG,GNI growth (annual %),1066,42,1990,2023
+SE.TER.CUAT.ST.ZS,"Educational attainment, at least completed short-cycle tertiary, population 25+, total (%) (cumulative)",211,41,1990,2023
+SE.XPD.TERT.PC.ZS,"Government expenditure per student, tertiary (% of GDP per capita)",269,40,1992,2018
+SE.XPD.TOTL.GD.ZS,"Government expenditure on education, total (% of GDP)",929,47,1990,2023
+SH.DYN.AIDS.ZS,"Prevalence of HIV, total (% of population ages 15-49)",1452,44,1990,2022
+SH.HIV.ARTC.ZS,Antiretroviral therapy coverage (% of people living with HIV),1012,44,2000,2022
+SH.MED.BEDS.ZS,"Hospital beds (per 1,000 people)",401,47,1990,2021
+SH.UHC.NOPR.ZS,Proportion of population pushed below the 60% median consumption poverty line by out-of-pocket health expenditure (%),147,46,1990,2021
+SH.XPD.CHEX.GD.ZS,Current health expenditure (% of GDP),1064,48,2000,2022
+SH.XPD.EHEX.CH.ZS,External health expenditure (% of current health expenditure),1061,48,2000,2022
+SH.XPD.GHED.GD.ZS,Domestic general government health expenditure (% of GDP),1064,48,2000,2022
+SH.XPD.OOPC.CH.ZS,Out-of-pocket expenditure (% of current health expenditure),1064,48,2000,2022
+SI.DST.50MD,Proportion of people living below 50 percent of median income (%),212,45,1991,2022
+SP.DYN.LE00.IN,"Life expectancy at birth, total (years)",1632,48,1990,2023
+SP.POP.TOTL,"Population, total",1632,48,1990,2023
